@@ -1,0 +1,35 @@
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl get pv
+kubectl get pvc
+kubectl get secrets
+
+kubectl apply -f folder or file
+
+kubectl create secret generic|tls|docker-registry| <secret_name> --from-literal <key>=<value>
+
+
+
+Ingress
+
+use of ingress-nginx and not kubernetes-ingress!
+
+https://kubernetes.github.io/ingress-nginx/
+
+ingress setup depends on environment (local, GC, AWS, Azure)
+
+Installation
+
+https://kubernetes.github.io/ingress-nginx/deploy/
+
+Generic command for all envs:
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+
+
+
+with ingress deployment on kubernetes a default-backend pod will also deployt by default
+this one is used for health checks!
+
+https://www.joyfulbikeshedding.com/blog/2018-03-26-studying-the-kubernetes-ingress-system.html
