@@ -33,3 +33,21 @@ with ingress deployment on kubernetes a default-backend pod will also deployt by
 this one is used for health checks!
 
 https://www.joyfulbikeshedding.com/blog/2018-03-26-studying-the-kubernetes-ingress-system.html
+
+
+
+
+service-account.json encryption
+
+service-account.json in GC Konsole generieren 
+
+Zum Encrypten
+
+docker + travis oder ruby + travis installieren (siehe screenshot)
+
+in .travis.yaml
+
+openssl aes-256-cbc -K $encrypted_e9eb1acbefab_key -iv $encrypted_e9eb1acbefab_iv -in service-account.json.enc -out service-account.json -d
+
+
+
