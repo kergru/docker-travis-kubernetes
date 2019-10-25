@@ -13,7 +13,7 @@ docker push kgrdocker/multi-worker:$SHA
 kubectl apply -f k8s
 
 kubectl set image deployments/server-deployment server=kgrdocker/multi-server:$SHA
-kubectl set image deployments/client-deployment server=kgrdocker/multi-client:$SHA
-kubectl set image deployments/worker-deployment server=kgrdocker/multi-worker:$SHA
+kubectl set image deployments/client-deployment client=kgrdocker/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=kgrdocker/multi-worker:$SHA
 
 
