@@ -4,6 +4,10 @@ kubectl get services
 kubectl get pv
 kubectl get pvc
 kubectl get secrets
+kubectl get namespaces
+kubectl get clusterroles
+kubectl get clusterrolebindings
+kubectl get serviceaccounts --namespace=<NAMESPACE>
 
 kubectl apply -f folder or file
 
@@ -50,4 +54,22 @@ in .travis.yaml
 openssl aes-256-cbc -K $encrypted_e9eb1acbefab_key -iv $encrypted_e9eb1acbefab_iv -in service-account.json.enc -out service-account.json -d
 
 
+Tiller Setup
 
+install helm in Kubernetes Cluster
+https://helm.sh/docs/using_helm/#from-script
+
+Role Base Access Control (RBAC)
+https://docs.helm.sh/using_helm/#role-based-access-control
+
+UserAccounts - identifies a person
+ServiceAccounts - identifies a pod/service
+ClusterRoleBinding - authorization to entire cluster, assigned to UserAccount/ServiceAccount
+RoleBinding - authorization to namespace, assigned to UserAccount/ServiceAccount
+
+
+kubectl create serviceaccount --namespace kube-system tiller
+kubectl create clusterrolebinding tiller-cluster-role --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+
+init helm
+helm init --service-account tiller --upgrade
