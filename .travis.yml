@@ -23,4 +23,5 @@ deploy:
   script: bash ./deploy.sh
   on:
     branch: master
+  skip_cleanup: true
 
