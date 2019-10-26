@@ -6,7 +6,7 @@ spec:
   secretName: naunynstrand-de
   issuerRef:
     name: letsencrypt-prod
-    kind: ClisterIssuer
+    kind: ClusterIssuer
   commonName: naunynstrand.de
   dnsNames:
     - naunynstrand.de
