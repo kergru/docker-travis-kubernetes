@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: naunynstrand-de-tls
+spec:
+  secretName: naunynstrand-de
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClisterIssuer
+  commonName: naunynstrand.de
+  dnsNames:
+    - naunynstrand.de
+    - www.naunynstrand.de
+  acme:
+    config:
+      - http01:
+        incressClass: nginx
+    domains:
+      - naunynstrand.de
+      - www.naunynstrand.de
+  
